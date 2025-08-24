@@ -22,7 +22,7 @@ A traffic light, also known as traffic signal, stop light, stop-and-go lights, i
 
 3. Yellow light indicates that the route has medium flow of vehicles.
 
-Time delays for changing from one state to another is considered as, TMG(from S1 to S2), TY(from S2 to S3), TTG(from S3 to S4), TY(from S4 to S5), TSG(from $5 to $6) and TY(from S6 to S1) and the cycle continues.
+Time delays for changing from one state to another is considered as, TMG(from S1 to S2), TY(from S2 to S3), TTG(from S3 to S4), TY(from S4 to S5), TSG(from S5 to $S6) and TY(from S6 to S1) and the cycle continues.
 
 ![pic2](https://github.com/user-attachments/assets/0847795e-a874-443a-b99c-ff62f8b69e48)
 
