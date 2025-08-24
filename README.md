@@ -2,7 +2,9 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------
 
 <details>
-<summary><b>Introduction: A traffic light system is an electronic device that assigns right of way at an intersection or crossing or street crossing by means of displaying the standard red, yellow and green colored indications. In addition, it also works in conjunction with pedestrian displays to assign pedestrian crossing right of way.
+<summary><b> 
+## Introduction: 
+A traffic light system is an electronic device that assigns right of way at an intersection or crossing or street crossing by means of displaying the standard red, yellow and green colored indications. In addition, it also works in conjunction with pedestrian displays to assign pedestrian crossing right of way.
 A traffic light, also known as traffic signal, stop light, stop-and-go lights, is a signaling device positioned at a road intersection, pedestrian crossing, or other location in order to indicate when it is safe to drive, ride, or walk using a universal colour code. Nowadays,</summary> <br>
 
 **1. A red light meant traffic in all directions had to stop.
