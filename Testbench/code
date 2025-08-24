@@ -1,0 +1,33 @@
+module test;
+    parameter n = 4;  
+    logic clk, rst;
+    logic [2:0] stA, stB;  
+  
+    top #(n) dut(
+        .clk(clk),
+        .rst(rst),
+        .stA(stA),
+        .stB(stB)
+    );
+    
+    initial begin
+        clk = 0;
+        forever #5 clk = ~clk;  
+    end
+    
+    initial begin
+        $dumpfile("dump.vcd");
+        $dumpvars(0, test); 
+    end
+      
+    initial begin
+        rst = 1;
+        #20 rst = 0;    
+        #200 $finish;    
+    end
+    
+    initial begin
+        $monitor("Time=%0t rst=%b stA=%b stB=%b", 
+                 $time, rst, stA, stB);
+    end
+endmodule
