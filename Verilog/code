@@ -1,0 +1,56 @@
+module top(clk, rst, stA, stB, count, h, l);
+  parameter n = 8;
+  input clk, rst;
+  output [2:0] stA, stB;
+  output [n-1:0] count;
+  output h, l;
+
+  wire h, l;
+
+  traffic light(clk, rst, h, l, stA, stB);
+  counter #(n) c(clk, rst, count);
+
+  assign h = &count;
+  assign l = ~count[0];
+endmodule
+
+module traffic(clk, rst, h, l, stA, stB);
+  input clk, rst, h, l;
+  output [2:0] stA, stB;
+  reg [1:0] y, Y;
+  parameter [1:0] A=2'b00, B=2'b01, C=2'b10, D=2'b11;
+  parameter red=3'b100, yellow=3'b010, green=3'b001;
+
+  always @(*) begin
+    case(y)
+      A: Y = h ? B : A;
+      B: Y = l ? C : B;
+      C: Y = h ? D : C;
+      D: Y = l ? A : D;
+      default: Y = 2'bxx;
+    endcase
+  end
+
+  always @(posedge clk or posedge rst) begin
+    if(rst)
+      y <= A;
+    else
+      y <= Y;
+  end
+
+  assign stA = (y == C) ? green : ((y == D) ? yellow : red);
+  assign stB = (y == A) ? green : ((y == B) ? yellow : red);
+endmodule
+
+module counter(clk, rst, count);
+  parameter n = 8;
+  input clk, rst;
+  output reg [n-1:0] count;
+
+  always @(posedge clk or posedge rst) begin
+    if(rst)
+      count <= 0;
+    else
+      count <= count - 1;
+  end
+endmodule
